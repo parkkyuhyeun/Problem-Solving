@@ -13,11 +13,13 @@ namespace BaekJoon
                 seperateInput = input.Split(' ');
             }
 
-            double a = double.Parse(seperateInput[0]);
-            double b = double.Parse(seperateInput[1]);
-
-            double ab = Math.Round(a/b, 10);
-            Console.WriteLine(ab);
+            int a = int.Parse(seperateInput[0]);
+            int b = int.Parse(seperateInput[1]);
+            Console.WriteLine(a + b);
+            Console.WriteLine(a - b);
+            Console.WriteLine(a * b);
+            Console.WriteLine(a / b);
+            Console.WriteLine(a % b);
         }
     }
 }
