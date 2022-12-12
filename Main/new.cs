@@ -16,7 +16,7 @@ namespace BaekJoon
             int a = int.Parse(seperateInput[0]);
             int b = int.Parse(seperateInput[1]);
 
-            Console.WriteLine(a + b);
+            Console.WriteLine(a - b);
         }
     }
 }
