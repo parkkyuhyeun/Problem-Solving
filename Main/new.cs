@@ -7,11 +7,12 @@ namespace BaekJoon
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("|\\_/|");
-            Console.WriteLine("|q p|   /}");
-            Console.WriteLine("( 0 )"+"\""+"\""+"\""+"\\");
-            Console.WriteLine("|\"^\"`    |");
-            Console.WriteLine("||_/=\\\\__|");
+            Console.WriteLine("         ,r'\"7");
+            Console.WriteLine("r`-_   ,'  ,/");
+            Console.WriteLine(" \\. \". L_r'");
+            Console.WriteLine("   `~\\/");
+            Console.WriteLine("      |");
+            Console.WriteLine("      |");
         }
     }
 }
