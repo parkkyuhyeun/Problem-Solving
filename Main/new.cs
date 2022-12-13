@@ -7,10 +7,17 @@ namespace BaekJoon
     {
         static void Main(string[] args)
         {
-            int n = int.Parse(Console.ReadLine());
+            int testCase = int.Parse(Console.ReadLine());
+            for(int i = 0; i < testCase; i++){
+                string num = Console.ReadLine();
+                string[] nums = {};
+                if(num is not null){
+                    nums = num.Split(' ');
+                }
+                int a = int.Parse(nums[0]);
+                int b = int.Parse(nums[1]);
 
-            for(int i = 1; i < 10; i++){
-                Console.WriteLine("{0} * {1} = {2}", n, i, n * i);
+                Console.WriteLine(a+b);
             }
         }
     }
