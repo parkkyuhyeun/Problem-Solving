@@ -7,18 +7,13 @@ namespace BaekJoon
     {
         static void Main(string[] args)
         {
-            string? input = Console.ReadLine();
-            string[] s_array = {};
-            if(input is not null){
-                s_array = input.Split(' ');
-            }
+            float num1 = float.Parse(Console.ReadLine());
+            float num2 = float.Parse(Console.ReadLine());
+            float num2_1 = num2 % 10;
+            float num2_10 = num2 % 100 - num2 % 10;
+            float num2_100 = num2 - num2%100;
 
-            float a = float.Parse(s_array[0]);
-            float b = float.Parse(s_array[1]);
-            float c = MathF.Truncate(b-2);
-            float d = MathF.Truncate(b-1);
-            
-            Console.WriteLine($"{a} {b} {c} {d}");
+            Console.WriteLine($"{num1 * num2_1}\n{num1 * num2_10 / 10}\n{num1 * num2_100/ 100}\n{num1 * num2}");
         }
     }
 }
