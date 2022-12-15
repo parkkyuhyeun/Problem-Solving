@@ -7,16 +7,19 @@ namespace BaekJoon
     {
         static void Main(string[] args)
         {
-            int count = int.Parse(Console.ReadLine());
+            while(true){
+                string? ab = Console.ReadLine();
+                string?[] abs = {};
+                if(ab is not null){
+                    abs = ab.Split(' ');
+                }
+                int a = int.Parse(abs[0]);
+                int b = int.Parse(abs[1]);
 
-            for(int i = 1; i <= count; i++){
-                for(int j = count-i; j > 0; j--){
-                    Console.Write(" ");
+                if(a == 0 && b == 0){
+                    break;
                 }
-                for(int l = 0; l <= i-1; l++){
-                    Console.Write("*");
-                }
-                Console.WriteLine();
+                Console.WriteLine(a+b);
             }
         }
     }
