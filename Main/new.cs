@@ -17,7 +17,7 @@ namespace BaekJoon
                 int a = int.Parse(abs[0]);
                 int b = int.Parse(abs[1]);
 
-                Console.WriteLine("Case #{0}: {1}",i,a+b);
+                Console.WriteLine("Case #{0}: {1} + {2} = {3}",i,a,b,a+b);
             }
         }
     }
