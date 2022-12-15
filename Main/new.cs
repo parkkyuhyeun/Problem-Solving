@@ -7,22 +7,18 @@ namespace BaekJoon
     {
         static void Main(string[] args)
         {
-            int x = int.Parse(Console.ReadLine());
-            int n = int.Parse(Console.ReadLine());
-            int number = 0;
-
-            for(int i = 0; i < n; i++){
-                string? ss = Console.ReadLine();
-                string[] tt = {};
-                if(ss is not null){
-                    tt = ss.Split(' ');
+            int T = int.Parse(Console.ReadLine());
+            for(int i = 1; i<=T; i++){
+                string? ab = Console.ReadLine();
+                string[] abs = {};
+                if(ab is not null){
+                    abs = ab.Split(' ');
                 }
-                int cost = int.Parse(tt[0]);
-                int num = int.Parse(tt[1]);
+                int a = int.Parse(abs[0]);
+                int b = int.Parse(abs[1]);
 
-                number = number + cost*num;
+                Console.WriteLine("Case #{0}: {1}",i,a+b);
             }
-            Console.WriteLine(number==x?"Yes":"No");
         }
     }
 }
