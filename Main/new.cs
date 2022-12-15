@@ -7,8 +7,12 @@ namespace BaekJoon
     {
         static void Main(string[] args)
         {
+            int count = 0;
             while(true){
                 string? ab = Console.ReadLine();
+                if(ab == null){
+                    break;
+                }
                 string?[] abs = {};
                 if(ab is not null){
                     abs = ab.Split(' ');
@@ -16,10 +20,8 @@ namespace BaekJoon
                 int a = int.Parse(abs[0]);
                 int b = int.Parse(abs[1]);
 
-                if(a == 0 && b == 0){
-                    break;
-                }
                 Console.WriteLine(a+b);
+
             }
         }
     }
