@@ -10,7 +10,10 @@ namespace BaekJoon
             int count = int.Parse(Console.ReadLine());
 
             for(int i = 1; i <= count; i++){
-                for(int j = 0; j < i; j++){
+                for(int j = count-i; j > 0; j--){
+                    Console.Write(" ");
+                }
+                for(int l = 0; l <= i-1; l++){
                     Console.Write("*");
                 }
                 Console.WriteLine();
