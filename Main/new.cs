@@ -7,21 +7,35 @@ namespace BaekJoon
     {
         static void Main(string[] args)
         {
-            string? nx = Console.ReadLine();
-            string[] nxs = {};
-            if(nx is not null) nxs = nx.Split(' ');
-            int n = int.Parse(nxs[0]);
-            int x = int.Parse(nxs[1]);
-            string? a = Console.ReadLine();
-            string[] a_array = {};
-            if(a is not null) a_array = a.Split(' ');
-            int?[] int_array = new int?[n];
-            for(int i = 0; i < n; i++){
-                int_array[i] = int.Parse(a_array[i]);
-                if(int_array[i] < x){
-                    Console.Write(int_array[i] + " ");
+            string input = Console.ReadLine();
+            int n = int.Parse(input);
+ 
+            string[] input2 = Console.ReadLine().Split(' ');
+            int[] numbers = new int[n];
+            for (int i = 0; i<n; i++)
+            {
+                numbers[i] = int.Parse(input2[i]);
+            }
+
+            int minNumber = numbers[numbers.Length - 1];
+            int maxNumber = numbers[numbers.Length - 1];
+            for (int i = 0; i < numbers.Length; i++)
+            {
+ 
+                int endN = numbers[numbers.Length - (i+1)];
+            
+                if (maxNumber <= endN)
+                {
+                    maxNumber = endN;
+                }
+ 
+                if (minNumber >= endN)
+                {
+                    minNumber = endN;
                 }
             }
+ 
+            Console.WriteLine("{0} {1}", minNumber, maxNumber);
         }
     }
 }
