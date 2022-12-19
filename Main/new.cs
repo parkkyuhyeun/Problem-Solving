@@ -7,29 +7,22 @@ namespace BaekJoon
     {
         static void Main(string[] args)
         {
-            string inputNum = Console.ReadLine();
-
-            int count = 0;
-            int addNum;
-
-            if (10 > int.Parse(inputNum))
-            {
-                inputNum = inputNum + 0;
+            int? count = 0;
+            int n = int.Parse(Console.ReadLine());
+            int?[] int_array = new int?[n];
+            string? number = Console.ReadLine();
+            string?[] numbers = {};
+            if(number is not null){
+                numbers = number.Split(' ');
             }
-            string originalNum = inputNum;
-
-            while (true)
-            {
-                count++;
-                int a = int.Parse(inputNum) / 10;
-                int b = int.Parse(inputNum) % 10;
-                addNum = a + b;
-                
-                inputNum = b.ToString() + (addNum % 10).ToString(); 
-            
-                if (int.Parse(inputNum) == int.Parse(originalNum)) break;
+            for(int i = 0; i < n; i++){
+                int_array[i] = int.Parse(numbers[i]);
             }
-            Console.WriteLine(count); 
+            int v = int.Parse(Console.ReadLine());
+            for(int j = 0; j < n; j++){
+                if(int_array[j] == v) count++;
+            }
+            Console.WriteLine(count);
         }
     }
 }
