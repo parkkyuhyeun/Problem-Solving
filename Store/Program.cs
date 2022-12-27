@@ -1,64 +1,88 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 
 namespace Test
 {
     public class Program
     {
-        public static int Count(int[] a, Predicate<int> prd){
-            int cnt = 0;
-            for(int i = 0; i<a.Length; i++){
-                if(prd(i) == true){
-                    cnt++;
-                }
-            }
-            return cnt;
+        public class Student
+        {
+            public string Name{get;set;}
+            public int ID{get;set;}
+            public List<int> Scores{get;set;}
         }
         static void Main(string[] args)
         {
-            Predicate<int> isOdd = (a) => {if(a%2==1) return true;else return false;};
-            Console.WriteLine(isOdd(7));
-            Predicate<string[]> isLowerCase = (a) => 
-            {
-                for(int i = 0; i < a.Length; i++){
-                    if(a[i]==a[i].ToLower()){
-                        return true;
-                    }
-                }
-                return false;
-            };
-            string? st = Console.ReadLine();
-            string[] st_array = {};
-            if(st is not null){
-                st_array = st.Split(' ');
+            List<int> data = new List<int>();
+            data.Add(2);
+            data.Add(5);
+            data.Add(7);
+            data.Add(123);
+            data.Add(244);
+            data.Add(44);
+
+            var sortedEven = from dt in data
+                             where (dt%2)==0
+                             orderby dt
+                             select dt;
+            foreach(int num in sortedEven){
+                Console.Write(num + " ");
             }
-            Console.WriteLine(isLowerCase(st_array));
+            Console.WriteLine("");
 
+            var lstEven = from lstDt in data
+                          where (lstDt>20)
+                          orderby lstDt descending
+                          select lstDt;
+            foreach(int num in lstEven){
+                Console.Write(num+" ");
+            }
+            Console.WriteLine("");
+            var lstSorted = from lstSort in lstEven
+                            orderby lstSort
+                            select lstSort * 2;
+            foreach(int num in lstSorted){
+                Console.Write(num+" ");
+            }
+            Console.WriteLine("");
 
-            int[] arr = {1,2,3,5,6,7,8};
-            Predicate<int> prd = (arr) => {if(arr%2==0) return true; else return false;};
-            int n = Count(arr, prd);
-            Console.WriteLine("짝수 개수 : {0}개",n);
-            Predicate<int> prd2 = (arr) => {if(arr%2==1) return true; else return false;};
-            n = Count(arr, prd2);
-            Console.WriteLine("홀수 개수 : {0}개",n);
+            List<int> lstData = new List<int>();
+            lstData.Add(1);
+            lstData.Add(4);
+            lstData.Add(536);
+            lstData.Add(134);
+            lstData.Add(421);
+            lstData.Add(453);
+            lstData.Add(314);
+            lstData.Add(6533);
+            var lstOdd = from odd in lstData
+                         where (odd%2)==1
+                         orderby odd
+                         select odd;
+            foreach(int i in lstOdd.ToList<int>()){
+                Console.Write(i+" ");
+            }
+            Console.WriteLine("");
+            var arrEven = from arr in lstData
+                          where (arr%2)==0
+                          orderby arr
+                          select arr;
+            foreach(int i in arrEven.ToArray<int>()){
+                Console.Write(i+" ");
+            }
+           
+            List<Student> students = new List<Student>(){
+                new Student(){Name="박규현",ID=0413,Scores=new List<int>(){90,91,92}},
+                new Student(){Name="한서진",ID=0413,Scores=new List<int>(){89,79,100}},
+                new Student(){Name="이지훈",ID=0413,Scores=new List<int>(){92,96,99}},
+                new Student(){Name="박현호",ID=0413,Scores=new List<int>(){100,100,100}}
+            };
+            static void HighScore(int exam, int cut){
+                var highScores = from st in students
+                                 where (st.Scores > cut)
+                                 select {}
 
-
-            List<string> myList = new List<string>();
-            myList.Add("cat");
-            myList.Add("rabbit");
-            myList.Add("tiger");
-            myList.Add("elephant");
-            myList.Add("zebra");
-            myList.Add("lion");
-            myList.Add("snake");
-            bool exist = myList.Exists((str)=>str.Contains("z"));
-            Console.WriteLine(exist);
-            string name = myList.Find((str)=>str.Length==3);
-            Console.WriteLine(name);
-            List<string> longName = myList.FindAll((str)=>str.Length==6);
-            foreach(string obj in longName){
-                Console.WriteLine(obj);
             }
         }
     }
