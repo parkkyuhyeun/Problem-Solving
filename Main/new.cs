@@ -7,13 +7,12 @@ namespace BaekJoon
     {
         static void Main(string[] args)
         {
-            int[] Namergy = new int[10];
-            for(int i = 0; i < 10; i++){
-                int a = int.Parse(Console.ReadLine());
-                Namergy[i] = a%42;
+            int n = int.Parse(Console.ReadLine());
+            for(int i = 0; i < n/4; i++)
+            {
+                Console.Write("long ");
             }
-            int[] distArray = Namergy.Distinct().ToArray();
-            Console.WriteLine(distArray.Length);
+            Console.Write("int");
         }
     }
 }
